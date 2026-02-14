@@ -1,0 +1,15 @@
+:root {
+    --bg-primary: #0a0a0ad2;
+    --bg-secondary: #1212129a;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-color: #fb4f4f;
+    --accent-hover: #fe6c6c;
+    --neon-pink: #ff00ff;
+    --neon-blue: #ff7878;
+    --card-bg: #1a1a1a;
+    --border-color: #333333;
+    --neon-glow: 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color),
+                 0 0 30px var(--accent-color);
+}
