@@ -167,7 +167,7 @@ function Register({ onNavigate }) {
         <hr/>
 
         <GoogleLoginBtn
-          endpoint="/api/auth/google-register/"
+          endpoint="/api/auth/google-login/"
           onSuccess={handleGoogleSuccess}
           onError={handleGoogleError}
           renderId="g_id_signin_register"
