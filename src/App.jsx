@@ -72,7 +72,7 @@ function App() {
     try {
       setCartLoading(true);
       setCartError("");
-      const res = await fetch(`${API_BASE_URL}/cart/`, {
+      const res = await fetch(`${API_BASE_URL}/api/cart/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -97,7 +97,7 @@ function App() {
     }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/cart/add/`, {
+      const res = await fetch(`${API_BASE_URL}/api/cart/add/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -127,7 +127,7 @@ function App() {
   async function handleUpdateCartItem(itemId, newQuantity) {
     if (newQuantity < 1) return;
     try {
-      const res = await fetch(`${API_BASE_URL}/cart/${itemId}/`, {
+      const res = await fetch(`${API_BASE_URL}/api/cart/${itemId}/`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

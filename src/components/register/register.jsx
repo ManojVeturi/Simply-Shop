@@ -39,7 +39,7 @@ function Register({ onNavigate }) {
 
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE_URL}/register/`, {
+      const res = await fetch(`${API_BASE_URL}/api/register/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
