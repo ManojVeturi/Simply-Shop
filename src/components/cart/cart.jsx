@@ -1,5 +1,7 @@
 import "./cart.css";
 
+import { ShoppingCart } from "lucide-react";
+
 function Cart({
   cartItems,
   loading,
@@ -7,11 +9,44 @@ function Cart({
   isLoggedIn,
   onUpdateQuantity,
   onRemoveItem,
+  onNavigate,
 }) {
   if (!isLoggedIn) {
     return (
-      <div className="Cart" id="Cart">
-        <h1>Please login to view your cart.</h1>
+      <div className="cart-auth-wrapper">
+        <div className="cart-auth-card">
+          <div className="cart-auth-icon-container">
+            <ShoppingCart size={48} className="cart-auth-icon" />
+          </div>
+          <h1 className="cart-auth-title">Your cart is waiting 🛒</h1>
+          <p className="cart-auth-subtitle">
+            Please login to view and manage your cart items
+          </p>
+          
+          <div className="cart-auth-actions">
+            <button 
+              className="cart-auth-btn primary" 
+              onClick={() => onNavigate && onNavigate("login")}
+            >
+              Login
+            </button>
+            <button 
+              className="cart-auth-btn secondary" 
+              onClick={() => onNavigate && onNavigate("register")}
+            >
+              Create Account
+            </button>
+          </div>
+          
+          <span 
+            className="cart-auth-link" 
+            onClick={() => onNavigate && onNavigate("home")}
+            role="button"
+            tabIndex={0}
+          >
+            Continue Shopping
+          </span>
+        </div>
       </div>
     );
   }

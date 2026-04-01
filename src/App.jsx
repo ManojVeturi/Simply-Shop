@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import Header from "./components/header/header.jsx";
-import About from "./components/about/about.jsx";
 import Home from "./components/home/home.jsx";
 import Login from "./components/login/login.jsx";
 import Register from "./components/register/register.jsx";
@@ -14,7 +13,7 @@ import "./App.css";
 const PRODUCT_API = "https://fakestoreapi.com/products";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("about");
+  const [currentPage, setCurrentPage] = useState("home");
 
   // products
   const [products, setProducts] = useState([]);
@@ -205,8 +204,6 @@ function App() {
         onLogout={handleLogout}
       />
 
-      {currentPage === "about" && <About />}
-
       {currentPage === "home" && (
         <Home
           products={products}
@@ -225,6 +222,7 @@ function App() {
           isLoggedIn={!!user}
           onUpdateQuantity={handleUpdateCartItem}
           onRemoveItem={handleRemoveCartItem}
+          onNavigate={handleNavigate}
         />
       )}
 

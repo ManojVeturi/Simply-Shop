@@ -1,47 +1,265 @@
-.contact{
-    background-color: var(--bg-secondary);
-    display: flex;
-    padding: 50px;
-    max-width: 100vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
+.contact-page {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px 20px; /* Accounts for fixed header */
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
-.contact h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-hover);
-    padding: 1rem;
-    border-radius: 1rem;
+
+.contact-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
-.contact h2:hover {
-    color: var(--accent-hover);
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.contact .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+
+/* Header Section */
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
-.contact .contact-details .contact-input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid hsla(0, 0%, 0%, 0.1);
-    border-radius: 5px;
-    font-size: 1rem;
+
+.contact-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--accent-color), 0 0 20px rgba(251, 79, 79, 0.5);
+  letter-spacing: 1px;
 }
-.contact .contact-btn{
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: var(--accent-color);
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    color: white;
-    cursor: pointer;
+
+.contact-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 400;
 }
-.contact .contact-btn:hover {
-    background-color: var(--accent-hover);
+
+/* Glassmorphism Card Additions */
+.contact-card {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(26, 26, 26, 0.6); /* --card-bg with transparency */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+/* Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Fields */
+.form-input {
+  width: 100%;
+  padding: 14px 14px 14px 45px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  padding-top: 14px;
+}
+
+/* Input Icons */
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Input Focus States */
+.form-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(251, 79, 79, 0.3);
+}
+
+.form-input:focus ~ .input-icon,
+.form-input:not(:placeholder-shown) ~ .input-icon {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(251, 79, 79, 0.5);
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* Pill style */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(251, 79, 79, 0.2);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(251, 79, 79, 0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Success Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 16px 24px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(100px);
+  opacity: 0;
+  animation: slideToast 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  z-index: 2000;
+}
+
+@keyframes slideToast {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Connect Section */
+.connect-section {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.connect-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.connect-heading::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.social-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  width: 60px;
+  height: 60px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 20px rgba(251, 79, 79, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 30px 20px;
+  }
+  
+  .contact-title {
+    font-size: 32px;
+  }
+  
+  .social-cards {
+    gap: 15px;
+  }
+  
+  .social-card {
+    width: 50px;
+    height: 50px;
+  }
 }
