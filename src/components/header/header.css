@@ -24,7 +24,6 @@
   font-size: 28px;
   font-weight: 800;
   background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
-  /* Fallback color for gradients */
   color: var(--accent-color);
   -webkit-background-clip: text;
   background-clip: text;
@@ -83,7 +82,6 @@
   box-shadow: 0 0 8px rgba(255, 126, 95, 0.6);
 }
 
-/* Icons & Actions */
 .actions {
   display: flex;
   align-items: center;
@@ -128,7 +126,6 @@
   border: 2px solid var(--bg-primary);
 }
 
-/* Search Bar */
 .search-container {
   position: relative;
   display: flex;
@@ -171,7 +168,6 @@
   color: var(--accent-color);
 }
 
-/* Dropdown */
 .profile-dropdown {
   position: absolute;
   top: 50px;
@@ -248,7 +244,6 @@
   transform: translateY(-1px);
 }
 
-/* Mobile styles */
 .hamburger {
   display: none;
   background: none;
@@ -281,7 +276,7 @@
   }
 
   .nav-links, .search-container, .auth-buttons, .profile-wrapper {
-    display: none; /* Hide desktop elements */
+    display: none;
   }
 
   .actions {
@@ -292,7 +287,6 @@
     display: flex;
   }
 
-  /* Slide-in Drawer */
   .mobile-drawer {
     position: fixed;
     top: 0;
@@ -358,7 +352,6 @@
     padding: 12px;
   }
 
-  /* Mobile Overlay Darken Background */
   .mobile-overlay {
     position: fixed;
     top: 0;

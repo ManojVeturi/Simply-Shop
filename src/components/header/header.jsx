@@ -9,10 +9,8 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
   
   const profileRef = useRef(null);
   
-  // Mock cart items count
-  const cartItemsCount = 3; 
+  const cartItemsCount = 3;
 
-  // Handle clicking outside of profile dropdown
   useEffect(() => {
     function handleClickOutside(event) {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -25,7 +23,6 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
     };
   }, []);
 
-  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -48,7 +45,6 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
     setProfileOpen(false);
   }
 
-  // Common Nav Links
   const NavLinks = () => (
     <>
       <button onClick={() => handleNavigate("home")} className="elements">
@@ -64,17 +60,14 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
     <div className="header-wrapper">
       <header className="header">
         
-        {/* Logo */}
         <div className="logo" onClick={() => handleNavigate("home")}>
           Simply Shop
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="nav-links">
           <NavLinks />
         </nav>
 
-        {/* Desktop Search */}
         <form className="search-container" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -86,10 +79,8 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
           <Search size={18} className="search-icon" />
         </form>
 
-        {/* Actions Container */}
         <div className="actions">
           
-          {/* Cart Icon */}
           <button 
             className="icon-btn cart-container" 
             onClick={() => handleNavigate("cart")}
@@ -101,7 +92,6 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
             )}
           </button>
 
-          {/* User Profile / Auth */}
           {isLoggedIn ? (
             <div className="profile-wrapper" ref={profileRef} style={{position: 'relative'}}>
               <button 
@@ -149,7 +139,6 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
             </div>
           )}
 
-          {/* Hamburger Menu Icon */}
           <button 
             className="hamburger" 
             onClick={() => setMenuOpen(true)}
@@ -161,13 +150,11 @@ function Header({ onNavigate, onSearch, isLoggedIn, onLogout }) {
 
       </header>
 
-      {/* Mobile Drawer Overlay */}
       <div 
         className={`mobile-overlay ${menuOpen ? 'open' : ''}`} 
         onClick={() => setMenuOpen(false)} 
       />
 
-      {/* Mobile Drawer */}
       <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`}>
         <button className="drawer-close" onClick={() => setMenuOpen(false)}>
           <X size={28} />
