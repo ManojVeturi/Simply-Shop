@@ -47,11 +47,17 @@ function Login({ onNavigate, onLogin }) {
   }
 
   function handleGoogleSuccess(data) {
-    if (data.access) localStorage.setItem("access_token", data.access);
-    if (data.refresh) localStorage.setItem("refresh_token", data.refresh);
+    const user = data.user || {
+      email: data.email,
+      name: data.name,
+    };
 
-    const user = data.user || { email: data.email, name: data.name };
-    const token = data.token || data.access || null;
+    const token = data.token;
+
+    if (!token) {
+      setError("Google login failed: no authentication token received.");
+      return;
+    }
 
     onLogin({
       user,

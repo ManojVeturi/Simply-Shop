@@ -73,7 +73,7 @@ function App() {
       setCartError("");
       const res = await fetch(`${API_BASE_URL}/api/cart/`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Token ${token}`,
         },
       });
       if (!res.ok) {
@@ -100,7 +100,7 @@ function App() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Token ${token}`,
         },
         body: JSON.stringify({
           product_id: product.id,
@@ -130,7 +130,7 @@ function App() {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Token ${token}`,
         },
         body: JSON.stringify({ quantity: newQuantity }),
       });
@@ -153,7 +153,7 @@ function App() {
       const res = await fetch(`${API_BASE_URL}/api/cart/${itemId}/`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Token ${token}`,
         },
       });
 
