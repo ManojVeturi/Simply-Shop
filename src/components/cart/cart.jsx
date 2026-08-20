@@ -69,8 +69,40 @@ function Cart({
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="Cart" id="Cart">
-        <h1>Your cart is empty.</h1>
+      <div className="Cart empty-cart-page" id="Cart">
+        <div className="empty-cart-card">
+          <div className="empty-cart-icon">
+            <ShoppingCart size={70} strokeWidth={1.5} />
+          </div>
+
+          <h1>
+            Your cart is <span>empty.</span>
+          </h1>
+
+          <p>
+            Looks like you haven't added anything to your cart yet.
+            <br />
+            Start shopping and find something you love! ❤️
+          </p>
+
+          <div className="empty-cart-actions">
+            <button
+              className="continue-shopping-btn"
+              onClick={() => onNavigate && onNavigate("home")}
+            >
+              <ShoppingCart size={20} />
+              Continue Shopping
+              <span>→</span>
+            </button>
+
+            <button
+              className="home-btn"
+              onClick={() => onNavigate && onNavigate("home")}
+            >
+              Go to Home
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
